@@ -16,6 +16,24 @@
   <script src="https://kit.fontawesome.com/1237c86ba0.js" crossorigin="anonymous"></script>
 </head>
 <body onload="checkUrlParameter()"y>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  document.addEventListener("DOMContentLoaded", (event) => {
+if (getUrlParameter('hide') !== 'true') {
+  console.log("Cloaking is enabled.");
+  document.getElementById('cloaking-overlay').style.display = 'none';
+}
+});
+
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-WKJQ5QHQTJ');
+</script>
+  <div id="cloaking-overlay" style="display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: black; z-index: 9999;"></div>
+
 <!-- Nav Bar Start-->
 <div class="fixed-nav-bar">
   <a class="icon" href="/./"><img id="INImg" src="main.png"></a>
@@ -44,15 +62,6 @@
   </div>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKJQ5QHQTJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-WKJQ5QHQTJ');
-  </script>
       <script src="/scripts/wisdom.js?v=1"></script>
       <script src="/scripts/edu.js"></script>
 </body>

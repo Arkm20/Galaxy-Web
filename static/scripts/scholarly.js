@@ -46,12 +46,18 @@ if (!inFrame && !navigator.userAgent.includes("Firefox") && getUrlParameter('clo
     // New else statement for when cloaking is false
     const alternativeTitle = "Galaxy Learning Portal";
     document.title = alternativeTitle;
+    document.body.classList.add('uncloaked');
 }
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-    if(window.localStorage.getItem("v4Particles") == "true") {
+document.addEventListener("DOMContentLoaded", (event) => { 
+    if(window.localStorage.getItem("v4Particles") === "true") {
       const scr = document.createElement("script");
       scr.src="/scripts/academia.js";
       document.body.appendChild(scr);
+    }
+    if (getUrlParameter('cloaked') === 'false') {
+        console.log("Cloaking is disabled.");
+        document.body.innerHTML = '';
+        document.body.style.background = 'black';
     }
   });
