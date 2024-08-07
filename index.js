@@ -8,7 +8,7 @@ const __dirname = process.cwd();
 const server = http.createServer();
 const app = express(server);
 const bareServer = createBareServer('/outerspace/');
-const PORT = 8000;
+const PORT = 8080;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -41,8 +41,9 @@ app.get('/edu/*', cors({ origin: false }), async (req, res, next) => {
   }
 });
 
+// biome-ignore lint/complexity/noForEach: <explanation>
 routes.forEach((route) => {
-  app.get(route.path, (req, res) => {
+  app.get(route.path, (_req, res) => {
     res.sendFile(path.join(__dirname, 'static', route.file));
   });
 });
