@@ -41,7 +41,6 @@ app.get('/edu/*', cors({ origin: false }), async (req, res, next) => {
   }
 });
 
-// biome-ignore lint/complexity/noForEach: <explanation>
 routes.forEach((route) => {
   app.get(route.path, (_req, res) => {
     res.sendFile(path.join(__dirname, 'static', route.file));
@@ -65,9 +64,10 @@ server.on('upgrade', (req, socket, head) => {
 });
 
 server.on('listening', () => {
-  console.log(`Running at http://localhost:${PORT}`);
+  console.log(`Running at http://0.0.0.0:${PORT}`);
 });
 
 server.listen({
   port: PORT,
+  host: '0.0.0.0',  // Bind to all network interfaces
 });
