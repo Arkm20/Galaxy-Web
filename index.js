@@ -21,7 +21,7 @@ const routes = [
   { path: '/events', file: 'games.html' },
   { path: '/diagnostic', file: 'settings.html' },
   { path: '/local-news', file: 'tabs.html' },
-  { path: '/image-galleries', file: 'go.html' },
+  { path: '/main', file: 'go.html' },
 ];
 
 app.get('/edu/*', cors({ origin: false }), async (req, res, next) => {

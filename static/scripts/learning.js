@@ -14,7 +14,7 @@ form.addEventListener("submit", async (event) => {
       else if (!(url.startsWith("https://") || url.startsWith("http://")))
         url = `http://${url}`;
       sessionStorage.setItem("encodedUrl", __uv$config.encodeUrl(url));
-      location.href = "image-galleries";
+      location.href = "main";
     });
 });
 
@@ -43,7 +43,7 @@ function images(value) {
         else if (!(url.startsWith("https://") || url.startsWith("http://")))
           url = "https://" + url;
         sessionStorage.setItem("encodedUrl", __uv$config.encodeUrl(url));
-        location.href = "/image-galleries";
+        location.href = "/main";
       });
   }
   
