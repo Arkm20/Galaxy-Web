@@ -21,7 +21,7 @@ const routes = [
   { path: '/events', file: 'games.html' },
   { path: '/diagnostic', file: 'settings.html' },
   { path: '/local-news', file: 'tabs.html' },
-  { path: '/image-galleries', file: 'go.html' },
+  { path: '/main', file: 'go.html' },
 ];
 
 app.get('/edu/*', cors({ origin: false }), async (req, res, next) => {
@@ -41,9 +41,8 @@ app.get('/edu/*', cors({ origin: false }), async (req, res, next) => {
   }
 });
 
-// biome-ignore lint/complexity/noForEach: <explanation>
 routes.forEach((route) => {
-  app.get(route.path, (_req, res) => {
+  app.get(route.path, (req, res) => {
     res.sendFile(path.join(__dirname, 'static', route.file));
   });
 });
@@ -70,4 +69,5 @@ server.on('listening', () => {
 
 server.listen({
   port: PORT,
+  host: '0.0.0.0',
 });

@@ -1,9 +1,9 @@
 //Loads custom icons
 
-document.addEventListener("DOMContentLoaded", (event) => { 
+document.addEventListener("DOMContentLoaded", function(event) { 
   const icon = document.getElementById('dynamic-favicon');
   const name = document.getElementById('dynamic-title');
-  const selectedValue = localStorage.getItem("selectedOption");
+  var selectedValue = localStorage.getItem("selectedOption");
   if (selectedValue === 'Google') {
       icon.setAttribute('href', '/images/favicon/google.png');
       name.textContent = 'Google';
@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       localStorage.setItem("name", "Dashboard | Khan Academy");
       localStorage.setItem("icon", "/images/favicon/khan.png");
   }
-  // biome-ignore lint/style/noVar: <explanation>
   var themeid = localStorage.getItem("theme");
   //Loads theme
   themeEle = document.createElement("link");

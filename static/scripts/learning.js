@@ -2,7 +2,6 @@ const form = document.querySelector("form");
 const input = document.querySelector("input");
 
 form.addEventListener("submit", async (event) => {
-  console.log("Form submitted");
   event.preventDefault();
   window.navigator.serviceWorker
     .register("./sw.js", {
@@ -10,11 +9,11 @@ form.addEventListener("submit", async (event) => {
     })
     .then(() => {
       let url = input.value.trim();
-      if (!isUrl(url)) url = `https://www.google.com/search?q=${url}`;
+      if (!isUrl(url)) url = "https://www.google.com/search?q=" + url;
       else if (!(url.startsWith("https://") || url.startsWith("http://")))
-        url = `http://${url}`;
+        url = "http://" + url;
       sessionStorage.setItem("encodedUrl", __uv$config.encodeUrl(url));
-      location.href = "image-galleries";
+      location.href = "main";
     });
 });
 
@@ -43,7 +42,7 @@ function images(value) {
         else if (!(url.startsWith("https://") || url.startsWith("http://")))
           url = "https://" + url;
         sessionStorage.setItem("encodedUrl", __uv$config.encodeUrl(url));
-        location.href = "/image-galleries";
+        location.href = "/main";
       });
   }
   
